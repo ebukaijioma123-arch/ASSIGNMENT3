@@ -1,0 +1,239 @@
+/* ===== RESET ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== BRAND VARIABLES ===== */
+:root {
+  --navy: #0b1f3a;
+  --navy-light: #14305a;
+  --accent: #f5a623;
+  --white: #ffffff;
+  --bg: #f4f6fa;
+  --text: #24324a;
+  --muted: #5c6b82;
+}
+
+/* ===== BASE (mobile-first) ===== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===== NAVBAR (Flexbox) ===== */
+.navbar {
+  display: flex;
+  flex-direction: column;      /* stacked on mobile */
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--navy);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.logo span,
+.footer-brand span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-links a {
+  color: var(--white);
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.nav-links a:hover {
+  border-color: var(--accent);
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3.5rem 1.25rem;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+}
+
+.tagline {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  max-width: 18ch;
+}
+
+.hero-text {
+  max-width: 45ch;
+  margin-bottom: 1.75rem;
+  color: #d5deec;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  background: var(--accent);
+  color: var(--navy);
+  font-weight: 700;
+  border-radius: 6px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  background: #ffb94d;
+  transform: translateY(-2px);
+}
+
+/* ===== FEATURES (Grid) ===== */
+.features {
+  padding: 3rem 1.25rem;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 1.75rem;
+  color: var(--navy);
+  margin-bottom: 2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;   /* 1 column on mobile */
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--white);
+  padding: 1.75rem 1.25rem;
+  border-radius: 10px;
+  border-top: 4px solid var(--accent);
+  box-shadow: 0 4px 14px rgba(11, 31, 58, 0.08);
+}
+
+.icon {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.card h3 {
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 2rem 1.25rem;
+  text-align: center;
+  background: var(--navy);
+  color: #c9d3e3;
+  font-size: 0.95rem;
+}
+
+.footer p {
+  margin-bottom: 0.35rem;
+}
+
+.footer-brand {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.copy {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #8d9bb3;
+}
+
+/* ===== MEDIA QUERY 1: Tablet (768px and up) ===== */
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;               /* logo left, links right */
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+  }
+
+  .hero {
+    padding: 5rem 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);  /* 3 cards in a row */
+  }
+}
+
+/* ===== MEDIA QUERY 2: Desktop (1024px and up) ===== */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 1.1rem 5rem;
+  }
+
+  .hero {
+    padding: 7rem 5rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-text {
+    font-size: 1.15rem;
+  }
+
+  .features {
+    padding: 5rem 2rem;
+  }
+
+  .cards {
+    gap: 2rem;
+  }
+}
